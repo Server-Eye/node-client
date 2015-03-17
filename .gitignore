@@ -5,3 +5,4 @@ bower_components/
 node_modules/*
 !node_modules/node-se-API-connector/
 nbproject/private/
+logindata.json

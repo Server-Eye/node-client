@@ -1,15 +1,12 @@
 var API = require("node-se-API-connector");
+var loginData = require('./logindata.json');
 
+//For debug
 console.log(API);
+console.log(loginData);
 
-console.log(API.getAPIkey(), "should be undef");
-console.log(API.setAPIkey("I4m4k3y"), "should be set");
-console.log(API.getAPIkey(), "is set");
+API.setAPIkey(loginData.apiKey);
 
-var testDate = new Date();
-
-testDate.setMinutes(testDate.getMinutes()+ 10);
-
-API.auth.key("roland.paltz@kraemer-it.de", "6feetunderthesea", "testAPIkey", 0, testDate, 10).then(function(result){
-    console.log("Key: ", result.data.apiKey);
+API.container.get(loginData.containerID).then(function(res){
+    console.log(res);
 });
